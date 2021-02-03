@@ -36,23 +36,23 @@ public class ArithmeticCalculatorServlet extends HttpServlet {
         
         String empty1 = request.getParameter("num1");
         String empty2 = request.getParameter("num2");
+        
+        int entry1 = 0;
+        int entry2 = 0;
         int result = 0;
         
        
         String operation = request.getParameter("calc");
-        while ("" == empty1 && "" == empty2){
+        while (empty1.equals("") && empty2.equals("")){
+            request.setAttribute("message", "Results: ---");
             if ("+".equals(operation) || "-".equals(operation) || "*".equals(operation) || "%".equals(operation)){
-                try{
-             nom1 = Integer.parseInt(empty1);
-             nom2 = Integer.parseInt(empty2);
-        } catch (NumberFormatException ex) {
-                 request.setAttribute("result", "--");
-            }
+                request.setAttribute("message", "Results: invalid");
+                
                 
             }
             getServletContext().getRequestDispatcher("/WEB-INF/arithmeticcalculator.jsp")
                 .forward(request, response);
-            return;
+            //return;
         }
         while ("" != empty1 && "" != empty2){
             if ("+".equals(operation)){

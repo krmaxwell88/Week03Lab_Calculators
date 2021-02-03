@@ -26,6 +26,7 @@
             <input type="submit" value="%" name="calc">
             <br>
             <div>Result: ${result}</div>
+            <div>${message}</div>
             <a href="./age">Age Calculator</a> 
         </form>
     </body>
